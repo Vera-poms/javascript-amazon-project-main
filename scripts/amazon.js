@@ -1,3 +1,5 @@
+import {cart} from '../data/cart.js' //the 2dots goes outside the scripts folder
+
 let productsHTML = ''
 
 products.forEach((product ) => {
