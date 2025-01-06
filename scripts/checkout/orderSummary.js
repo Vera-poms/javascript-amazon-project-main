@@ -8,8 +8,9 @@ import {
 import {products, getProduct} from '../../data/products.js'
 import { formatCurrency } from '../utils/money.js'
 import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js' //uses a default export that is why it doesn't need the curly braces. However, the ones above use named exports
-import { deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js' 
+import { calculateDeliveryDate, deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js' 
 import { renderPaymentSummary } from './paymentSummary.js'
+import { renderCheckoutHeader } from './checkoutHeader.js'
 
 
 export function renderOrderSummary(){
@@ -24,12 +25,8 @@ export function renderOrderSummary(){
  const matchingProduct = getProduct(productId)
 
  const {deliveryOptionId} = cartItem
-
  const deliveryOption = getDeliveryOption(deliveryOptionId)
-
- const today = dayjs()
- const deliveryDate = today.add(deliveryOption.deliveryDays, 'days')
- const dateString = deliveryDate.format('dddd, MMMM D')
+ let dateString = calculateDeliveryDate(deliveryOption)
 
  
 
@@ -78,16 +75,12 @@ export function renderOrderSummary(){
  })
 
 
+
  function deliveryOptionsHTML(matchingProduct, cartItem){
  let html = ''
 
    deliveryOptions.forEach((deliveryOption)  => {
-     const today = dayjs()
-     const deliveryDate = today.add(
-       deliveryOption.deliveryDays, 
-       'days'
-     )
-     const dateString = deliveryDate.format('dddd, MMMM D')
+    const dateString = calculateDeliveryDate(deliveryOption)
 
      const priceString = deliveryOption.priceCents === 0 ? 'FREE' : `$${formatCurrency(deliveryOption.priceCents)} - `
 
@@ -125,6 +118,7 @@ export function renderOrderSummary(){
    const {productId} = link.dataset
    removeFromCart(productId) 
 
+   renderCheckoutHeader()
    renderOrderSummary()
    updateCartQuantity()
    renderPaymentSummary()
