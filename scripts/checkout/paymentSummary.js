@@ -63,10 +63,5 @@ let shippingPriceCents = 0
  document.querySelector('.js-payment-summary').innerHTML = paymentSummaryHTML
  
 
- 
-
- 
- 
- 
  }
  
