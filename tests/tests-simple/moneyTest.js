@@ -1,4 +1,4 @@
- import formatCurrency from "../scripts/utils/money.js";
+ import formatCurrency from "../../scripts/utils/money.js";
 
  //Automated Testing or testing with testcases 
 
