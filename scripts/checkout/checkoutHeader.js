@@ -7,12 +7,6 @@ export function renderCheckoutHeader(){
 
    cart.forEach((cartItem) => {
     cartQuantity += cartItem.quantity
-
-    // if(cartQuantity <= 1){
-    //   let cartNumItems = document.querySelector('.js-return-to-home-link').innerHTML
-    //   cartNumItems
-    //   console.log(`${cartQuantity} items`)
-    //  }
    })
 
    return cartQuantity
@@ -31,8 +25,9 @@ export function renderCheckoutHeader(){
         </div>
 
         <div class="checkout-header-middle-section ">
-          Checkout (<a class="return-to-home-link js-return-to-home-link"
-            href="amazon.html">${updateCartQuantity()} Items</a>)
+          Checkout (
+            <a class="return-to-home-link js-return-to-home-link"
+            href="amazon.html">${updateCartQuantity() <= 1 ? `${updateCartQuantity()} Item`:`${updateCartQuantity()} Items`}</a>)
         </div>
 
         <div class="checkout-header-right-section">
