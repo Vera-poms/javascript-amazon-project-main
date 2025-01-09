@@ -125,13 +125,13 @@ export function renderOrderSummary(){
   })
 })
 
- function updateCartQuantity(){
-   const cartQuantity = calculateCartQuantity()
+// function updateCartQuantity(){
+//   const cartQuantity = calculateCartQuantity()
 
-   document.querySelector('.js-return-to-home-link').innerHTML = 
-   cartQuantity <= 1 ? `${cartQuantity} item` : `${cartQuantity} items` 
+//   document.querySelector('.js-return-to-home-link').innerHTML = 
+//   cartQuantity <= 1 ? `${cartQuantity} item` : `${cartQuantity} items` 
 
- }
+// }
 
  document.querySelectorAll('.js-update-quantity-link').forEach((link) => {
    link.addEventListener('click', () => {

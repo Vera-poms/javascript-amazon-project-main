@@ -1,12 +1,24 @@
-import { cart } from "../../data/cart.js"
+import { cart, calculateCartQuantity } from "../../data/cart.js"
 
 export function renderCheckoutHeader(){
 
- let cartQuantity = 0
+ function updateCartQuantity(){
+   let cartQuantity = 0
 
- cart.forEach((cartItem) => {
-  cartQuantity += cartItem.quantity
- })
+   cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity
+
+    // if(cartQuantity <= 1){
+    //   let cartNumItems = document.querySelector('.js-return-to-home-link').innerHTML
+    //   cartNumItems
+    //   console.log(`${cartQuantity} items`)
+    //  }
+   })
+
+   return cartQuantity
+ }
+
+ 
  
   
  const checkoutHeaderSummary = `
@@ -20,7 +32,7 @@ export function renderCheckoutHeader(){
 
         <div class="checkout-header-middle-section ">
           Checkout (<a class="return-to-home-link js-return-to-home-link"
-            href="amazon.html"></a>)
+            href="amazon.html">${updateCartQuantity()} Items</a>)
         </div>
 
         <div class="checkout-header-right-section">
