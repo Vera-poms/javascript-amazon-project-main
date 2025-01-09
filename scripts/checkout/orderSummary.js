@@ -46,7 +46,7 @@ export function renderOrderSummary(){
              ${matchingProduct.name}
            </div>
            <div class="product-price  js-product-price-${matchingProduct.id}">
-             $${formatCurrency(matchingProduct.priceCents)}
+             ${matchingProduct.getPrice()}
            </div>
            <div class="product-quantity js-product-quantity-${matchingProduct.id}">
              <span>
@@ -125,13 +125,13 @@ export function renderOrderSummary(){
   })
 })
 
-// function updateCartQuantity(){
-//   const cartQuantity = calculateCartQuantity()
+function updateCartQuantity(){
+  const cartQuantity = calculateCartQuantity()
 
-//   document.querySelector('.js-return-to-home-link').innerHTML = 
-//   cartQuantity <= 1 ? `${cartQuantity} item` : `${cartQuantity} items` 
+  document.querySelector('.js-return-to-home-link').innerHTML = 
+  cartQuantity <= 1 ? `${cartQuantity} item` : `${cartQuantity} items` 
 
-// }
+}
 
  document.querySelectorAll('.js-update-quantity-link').forEach((link) => {
    link.addEventListener('click', () => {
