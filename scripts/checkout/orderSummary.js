@@ -1,5 +1,4 @@
 import {
- cart, 
  removeFromCart, 
  calculateCartQuantity, 
  updateQuantity,
@@ -11,6 +10,7 @@ import dayjs from 'https://unpkg.com/dayjs@1.11.10/esm/index.js' //uses a defaul
 import { calculateDeliveryDate, deliveryOptions, getDeliveryOption } from '../../data/deliveryOptions.js' 
 import { renderPaymentSummary } from './paymentSummary.js'
 import { renderCheckoutHeader } from './checkoutHeader.js'
+import {cart} from '../../data/cart-class.js'
 
 
 export function renderOrderSummary(){
@@ -18,7 +18,7 @@ export function renderOrderSummary(){
 
  let cartSummaryHTML = ''
 
- cart.forEach((cartItem) => {
+ cart.cartItems.forEach((cartItem) => {
 
  const productId = cartItem.productId 
 
@@ -116,7 +116,7 @@ export function renderOrderSummary(){
  document.querySelectorAll('.js-delete-quantity-link').forEach((link) => {
  link.addEventListener('click', () => {
    const {productId} = link.dataset
-   removeFromCart(productId) 
+   cart.removeFromCart(productId) 
 
    renderCheckoutHeader()
    renderOrderSummary()
@@ -197,7 +197,7 @@ function updateCartQuantity(){
  document.querySelectorAll('.js-delivery-option').forEach((element) => {
    element.addEventListener('click', () => {
      const {productId, deliveryOptionId} = element.dataset
-     updateDeliveryOption(productId, deliveryOptionId)
+     cart.updateDeliveryOption(productId, deliveryOptionId)
      renderOrderSummary()
      renderPaymentSummary()
    })

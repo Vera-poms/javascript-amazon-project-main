@@ -1,6 +1,7 @@
-import {cart, addToCart, calculateCartQuantity } from '../data/cart.js' //the 2dots goes outside the scripts folder
+import { calculateCartQuantity } from '../data/cart.js' //the 2dots goes outside the scripts folder
 import {products} from '../data/products.js '
 import { formatCurrency } from './utils/money.js'
+import {cart} from '../data/cart-class.js'
 
 updateCartQuantity()
 let productsHTML = ''
@@ -78,7 +79,7 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
  button.addEventListener('click', ()=>{
    const productId = button.dataset.productId
 
-  addToCart(productId)
+  cart.addToCart(productId)
 
   updateCartQuantity()
   })

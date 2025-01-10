@@ -1,11 +1,12 @@
-import { cart, calculateCartQuantity } from "../../data/cart.js"
+import { calculateCartQuantity } from "../../data/cart.js"
+import {cart} from '../../data/cart-class.js'
 
 export function renderCheckoutHeader(){
 
  function updateCartQuantity(){
    let cartQuantity = 0
 
-   cart.forEach((cartItem) => {
+   cart.cartItems.forEach((cartItem) => {
     cartQuantity += cartItem.quantity
    })
 
