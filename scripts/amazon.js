@@ -1,4 +1,4 @@
-import { calculateCartQuantity } from '../data/cart.js' //the 2dots goes outside the scripts folder
+// import { calculateCartQuantity } from '../data/cart.js' //the 2dots goes outside the scripts folder
 import {products} from '../data/products.js '
 import { formatCurrency } from './utils/money.js'
 import {cart} from '../data/cart-class.js'
@@ -67,7 +67,7 @@ document.querySelector('.js-products-grid').innerHTML = productsHTML
 
 
 function  updateCartQuantity(){
-  const cartQuantity = calculateCartQuantity()
+  const cartQuantity = cart.calculateCartQuantity()
   if(cartQuantity === 0){
     document.querySelector('.js-cart-quantity').innerHTML = ''
   }else{

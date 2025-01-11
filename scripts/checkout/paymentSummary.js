@@ -1,4 +1,4 @@
-import {calculateCartQuantity, updateQuantity} from '../../data/cart.js'
+// import {calculateCartQuantity, updateQuantity} from '../../data/cart.js'
 import {getProduct} from '../../data/products.js'
 import formatCurrency  from '../utils/money.js'
 import { getDeliveryOption } from '../../data/deliveryOptions.js'
@@ -8,7 +8,7 @@ import {cart} from '../../data/cart-class.js'
 
 export function renderPaymentSummary(cartItem){
 
-let cartQuantity = calculateCartQuantity()
+let cartQuantity = cart.calculateCartQuantity()
 let productPriceCents = 0
 let shippingPriceCents = 0
 
