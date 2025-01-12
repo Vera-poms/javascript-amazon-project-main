@@ -117,12 +117,12 @@ export function loadProductsFetch(){
       }else if(productDetails.type === 'appliance'){
         return new Appliance(productDetails)
       }
-     return new Product(productDetails)
+
     });
     console.log('products loaded!')
-
+  }).catch((error) => {
+    console.log('Unexpected error! Please try again later!!')
   })
-
   return promise
 }
 // loadProductsFetch().then(() => {
@@ -145,11 +145,14 @@ export function loadProducts(fun) {
 
     fun() //this is a callback
    })
+   xhr.addEventListener('error', (error) => {
+    console.log('Unexpected error! Please try again later!!')
+   })
 
    xhr.open('GET', 'https://supersimplebackend.dev/products')
    xhr.send()
 }
-
+// loadProducts() 
 
 /*
 export const products = [
