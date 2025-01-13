@@ -1,4 +1,5 @@
 import formatCurrency from "../scripts/utils/money.js"
+
 export function  getProduct(productId){
   let matchingProduct
 
@@ -114,10 +115,8 @@ export function loadProductsFetch(){
     products = productsData.map((productDetails ) => {
       if(productDetails.type === 'clothing'){
         return new Clothing(productDetails)
-      }else if(productDetails.type === 'appliance'){
-        return new Appliance(productDetails)
       }
-
+        return new Product(productDetails)
     });
     console.log('products loaded!')
   }).catch((error) => {

@@ -85,7 +85,7 @@ export function updateDeliveryOption(productId, deliveryOptionId){
   let matchingItem  
 
  cart.forEach((cartItem) => {
-  if(productId === cartItem.productId){
+  if(productId === productId){
    matchingItem = cartItem
   }
 })
@@ -106,9 +106,13 @@ export  let products = []
 
 export function loadCart(fun) {
    const xhr = new XMLHttpRequest()
-
    xhr.addEventListener('load', () => {
-    
+    // products = JSON.parse(xhr.response).map((productDetails) => {
+    //   if(productDetails.type === 'clothing'){
+    //     return new Clothing(productDetails)
+    //   }
+    //   return new Product(productDetails)
+    //  })
     console.log(xhr.response)
 
     fun() //this is a callback

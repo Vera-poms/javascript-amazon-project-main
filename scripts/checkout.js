@@ -10,18 +10,19 @@ import { loadCart } from "../data/cart.js";
 async function loadPage(){
  try{
   // throw 'error1'
-
   await loadProductsFetch()
 
-  const value = await new Promise((resolve, reject) => {
+ const value = await new Promise((resolve, reject) => {
    // throw 'error2'
-   loadCart(() => {
-    // reject('error3')
-    resolve('value3')
-   })
-  }) 
- }catch(error) {
-  console.log('Unexpected error! Please try again later!!')
+
+  loadCart(() => {
+   resolve('value3')
+   // reject('error3')
+  })
+ }) 
+
+ }catch(error){
+  console.log('Unexpected error. Please try again later.')
  }
 
  renderCheckoutHeader()
@@ -29,6 +30,13 @@ async function loadPage(){
  renderPaymentSummary()
 }
 loadPage()
+// .then((value) => {
+//  console.log('next page')
+//  console.log(value)
+
+// })
+
+
 
 /*
 Promise.all([
@@ -40,7 +48,7 @@ Promise.all([
  }) 
 
 ]).then((values) => {
- console.log(values)
+ // console.log(values)
  renderCheckoutHeader()
  renderOrderSummary()
  renderPaymentSummary()
