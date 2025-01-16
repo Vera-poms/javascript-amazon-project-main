@@ -29,6 +29,8 @@ function renderProductsGrid() {
       })
     }
 
+   
+
     filteredProducts.forEach((product) => {
       productsHTML += `
       <div class="product-container">
@@ -81,6 +83,22 @@ function renderProductsGrid() {
           Add to Cart
         </button>
       </div>`
+    })
+
+    let isClicked = false
+    let hamburgerButton = document.querySelector('.js-hamburger-toggle')
+    let hamburgerDropdown = document.querySelector('.js-hamburger-menu-dropdown')      
+
+    hamburgerButton.addEventListener('click', () => {
+        if(!isClicked){
+          hamburgerDropdown.classList.add('hamburger-dropdown-added')
+          isClicked = true
+        }else{
+          hamburgerDropdown.classList.remove('hamburger-dropdown-added') 
+          isClicked = false
+
+        }
+      
     })
 
       document.querySelector('.js-products-grid').innerHTML = productsHTML
