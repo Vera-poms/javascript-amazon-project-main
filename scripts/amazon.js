@@ -8,11 +8,8 @@ loadProducts(renderProductsGrid) //waited for the https to finish a request and 
 function renderProductsGrid() {
   updateCartQuantity()
     let productsHTML = ''
-
-
     const url = new URL(window.location.href)
     const search = url.searchParams.get('search')
-
     let filteredProducts = products
 
     if(search){
@@ -28,8 +25,6 @@ function renderProductsGrid() {
         return matchingKeyword || product.name.toLowerCase().includes(search.toLowerCase())
       })
     }
-
-   
 
     filteredProducts.forEach((product) => {
       productsHTML += `
@@ -111,6 +106,12 @@ function renderProductsGrid() {
         }
         document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
         
+      }
+      const cartQuantity = cart.calculateCartQuantity()
+      if(cartQuantity === 0){
+        document.querySelector('.js-cart-quantity-mobile').innerHTML = 0
+      }else{
+        document.querySelector('.js-cart-quantity-mobile').innerHTML = cartQuantity
       }
 
       document.querySelectorAll('.js-add-to-cart').forEach((button) => {
