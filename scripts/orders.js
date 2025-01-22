@@ -99,6 +99,23 @@ document.querySelectorAll('.js-buy-again').forEach((button) => {
 }
 loadPage()
 
+let isClicked = false
+let hamburgerButton = document.querySelector('.js-hamburger-toggle')
+let hamburgerDropdown = document.querySelector('.js-hamburger-menu-dropdown')      
+
+hamburgerButton.addEventListener('click', () => {
+    if(!isClicked){
+      hamburgerDropdown.classList.add('hamburger-dropdown-added')
+      isClicked = true
+      console.log('clicked')
+    }
+    else{
+      hamburgerDropdown.classList.remove('hamburger-dropdown-added') 
+      isClicked = false
+    }
+  
+})
+
 
 
 

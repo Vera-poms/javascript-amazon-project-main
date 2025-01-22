@@ -93,10 +93,11 @@ function renderProductsGrid() {
         if(!isClicked){
           hamburgerDropdown.classList.add('hamburger-dropdown-added')
           isClicked = true
-        }else{
+          console.log('clicked')
+        }
+        else{
           hamburgerDropdown.classList.remove('hamburger-dropdown-added') 
           isClicked = false
-
         }
       
     })
@@ -107,9 +108,9 @@ function renderProductsGrid() {
         const cartQuantity = cart.calculateCartQuantity()
         if(cartQuantity === 0){
           document.querySelector('.js-cart-quantity').innerHTML = ''
-        }else{
-          document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
         }
+        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity
+        
       }
 
       document.querySelectorAll('.js-add-to-cart').forEach((button) => {

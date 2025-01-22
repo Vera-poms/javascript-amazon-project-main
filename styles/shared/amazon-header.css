@@ -19,28 +19,43 @@
   width: 180px;
 }
 
+
+
 @media (max-width: 800px) {
   .amazon-header-left-section {
     width: unset;
   }
-  .amazon-header-right-section{
+ 
+  .hamburger-menu-toggle{
     display: none;
   }
-}
-
-.header-link {
-  display: inline-block;
-  padding: 6px;
-  border-radius: 2px;
-  cursor: pointer;
-  text-decoration: none;
-  border: 1px solid rgba(0, 0, 0, 0);
-}
-
-.header-link:hover {
+  .amazon-header-right-section {
+    width: 180px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: end;
+  }
+  .header-link:hover {
   border: 1px solid white;
 }
 
+}
+
+@media (min-width: 801px){
+  .hamburger-menu-toggle{
+    display: none;
+  }
+  .amazon-header-right-section {
+    width: 180px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: end;
+  }
+}
+
+/* .hamburger-menu-toggle{
+  cursor: pointer;
+} */
 .amazon-logo {
   width: 100px;
   margin-top: 5px;
@@ -62,6 +77,15 @@
   transition: height 0.25s;
   height: 0px;
 }
+.header-link{
+  padding: 6px;
+   display: inline-block;
+   text-decoration: none;
+   padding: 10px;
+   color: 1px solid rgba(0, 0, 0, 0);
+   border-radius: 2px;
+   cursor: pointer;
+ }
 
 @media (max-width: 575px) {
   .amazon-logo {
@@ -78,24 +102,27 @@
   }
   .hamburger-menu-toggle{
     cursor: pointer;
-  }
- .amazon-header .hamburger-dropdown-added{
-    height: 88px;
-  }
-  
-  .amazon-header .hamburger-dropdown-menu{
     display: block;
   }
-  .hamburger-menu-link{
-    /* position: absolute;
-    top: 80px; */
+  .amazon-header .hamburger-dropdown-added{
+      height: 88px;
+  }
+    .amazon-header .hamburger-menu-dropdown{
+      display: block;
+    }
+  .amazon-header .hamburger-menu-link{
+    padding: 10px;
+    display: block;
+    text-decoration: none;
     padding: 10px;
     color: white;
   }
   .hamburger-menu-link:hover{
-    background-color: rgb(32, 36, 42);
-    border: none;
+    background-color: rgb(43, 50, 59);
   }
+  /* .hamburger-menu-link:hover{
+    background-color: rgb(32, 36, 42);
+  } */
   /* .menu-cart-text, .menu-returns-text{
     color: white;
     position: absolute;
@@ -107,11 +134,11 @@
     top: 90px;
 
   } */
-  .returns-text, .cart-text{
+  /* .returns-text, .cart-text{
     text-align: center;
     font-size: 20px;
     color: white;
-  }
+  } */
 }
 
 .amazon-header-middle-section {
@@ -151,11 +178,19 @@
   margin-top: 3px;
 }
 
-/* .amazon-header-right-section {
-  width: 180px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: end;
+/* @media (min-width: 801px){
+  .hamburger-menu-toggle{
+    display: none;
+  }
+  .amazon-header-right-section {
+    width: 180px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: end;
+  }
+  .header-link:hover {
+  border: 1px solid white;
+}
 } */
 
 .orders-link {
