@@ -76,6 +76,9 @@
     width: 26px;
     text-align: center;
   }
+  .header-link:hover{
+    border: 1px solid white;
+  }
   
 }
 .amazon-logo {
